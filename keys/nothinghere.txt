@@ -1,0 +1,5 @@
+This file only exists to make sure the folder gets created.
+
+Create the keys with:
+`openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./selfsigned.key -out selfsigned.crt
+`
