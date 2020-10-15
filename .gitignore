@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+src/yarn.lock
+
+#macosx
+.DS_Store
+Assets/.DS_Store

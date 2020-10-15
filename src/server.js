@@ -2,6 +2,7 @@
 
 // LINK !!!
 // https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl
+// sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./selfsigned.key -out selfsigned.crt
 
 
 const PORT = 9443
@@ -72,6 +73,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// CHANGE THIS:
 app.use("/", express.static(__dirname + "/../../"));
 
 // // Express routes
