@@ -4,8 +4,12 @@
 // https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl
 // sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./selfsigned.key -out selfsigned.crt
 
-
+// change these:
 const PORT = 9443
+const DIRECTORY = "/../../"
+
+
+// =========
 const fs = require("fs");
 
 // const http = require('http');
@@ -21,11 +25,11 @@ console.log("running on", computerName);
 if (computerName == "pi3") {
   // start with SUDO!!!
   privateKey = fs.readFileSync(
-    "/etc/letsencrypt/live/dirkk0.spdns.eu/privkey.pem",
+    "/someotherserver/privkey.pem",
     "utf8"
   );
   certificate = fs.readFileSync(
-    "/etc/letsencrypt/live/dirkk0.spdns.eu/cert.pem",
+    "/someotherserver/cert.pem",
     "utf8"
   );
 } else {
@@ -74,7 +78,7 @@ app.use((req, res, next) => {
 });
 
 // CHANGE THIS:
-app.use("/", express.static(__dirname + "/../../"));
+app.use("/", express.static(__dirname + DIRECTORY));
 
 // // Express routes
 // // curl -k https://localhost:4000/users/123/books/456
